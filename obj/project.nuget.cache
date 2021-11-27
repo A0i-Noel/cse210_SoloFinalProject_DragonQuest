@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pgSCoaTF58XJVOlPPS9dnnThECXovqr7wtFmVPdbaveRLWPiGKOMDgAmsEC1HPXoBqhwIlazs6cBgFyRgNUmrg==",
+  "dgSpecHash": "xgGtR+X2mW5jSczRWibSWa5rSrBGmPV+XoRwEFHabMRrF++tMPAPKjSTPQPakTnYlAxLLApwHwcGf7B/jR8RCw==",
   "success": true,
   "projectFilePath": "/Users/aoikuriki/Downloads/Study/Computer Science/CSE 210/CSE210_SoloFinalProject_DragonQuest_ver3/cse210_SoloFinalProject_DragonQuest/cse210_SoloFinalProject_DragonQuest.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/aoikuriki/.nuget/packages/raylib-cs/3.7.0.1/raylib-cs.3.7.0.1.nupkg.sha512",
+    "/Users/aoikuriki/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
