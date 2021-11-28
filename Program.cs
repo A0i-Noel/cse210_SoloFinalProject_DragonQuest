@@ -13,20 +13,31 @@ namespace cse210_FinalProject_DragonQuest
             // Create the cast
             Dictionary<string, List<Actor>> cast = new Dictionary<string, List<Actor>>();
 
-            // Bricks
-            cast["bricks"] = new List<Actor>();
+          
+            cast["Hero"] = new List<Actor>();
+            Hero _Hero = new Hero(Constants.MAX_X / 2, Constants.MAX_Y / 2);
+            cast["Hero"].Add(_Hero);
 
-            // TODO: Add your bricks here
+            
 
-            // The Ball (or balls if desired)
-            cast["balls"] = new List<Actor>();
+           
+            cast["Slime"] = new List<Actor>();
+            Slime _Slime = new Slime(Constants.MAX_X/2, 300);
+            cast["Slime"].Add(_Slime);
 
-            // TODO: Add your ball here
 
-            // The paddle
-            cast["paddle"] = new List<Actor>();
+           
 
-            // TODO: Add your paddle here
+ 
+            cast["Drakee"] = new List<Actor>();
+            Drakee _Drakee = new Drakee(Constants.MAX_X/2, 600);
+            cast["Drakee"].Add(_Drakee);
+
+     
+
+            cast["Dragon"] = new List<Actor>();
+            Dragon _Dragon = new Dragon(Constants.MAX_X/2 , 100);
+            cast["Dragon"].Add(_Dragon);
 
             // Create the script
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();
@@ -37,8 +48,14 @@ namespace cse210_FinalProject_DragonQuest
             AudioService audioService = new AudioService();
 
             script["output"] = new List<Action>();
+
             script["input"] = new List<Action>();
+            ControlActorsAction _CAA = new ControlActorsAction(inputService);
+            script["input"].Add(_CAA);
+
             script["update"] = new List<Action>();
+            MoveActorsAction _MAA = new MoveActorsAction();
+            script["update"].Add(_MAA);
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);

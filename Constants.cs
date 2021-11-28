@@ -15,6 +15,10 @@ namespace cse210_FinalProject_DragonQuest
       public const string SOUND_START = "./Assets/start.wav";
       public const string SOUND_BOUNCE = "./Assets/boing.wav";
       public const string SOUND_OVER = "./Assets/over.wav";
+      public const string IMAGE_HERO = "./Assets/Hero.png";
+      public const string IMAGE_SLIME = "./Assets/slime.png";
+      public const string IMAGE_DRAKEE = "./Assets/Drakee.png";
+      public const string IMAGE_DRAGON = "./Assets/Dragon.png";
 
       public const int BALL_X = MAX_X / 2;
         public const int BALL_Y = MAX_Y - 125;
@@ -28,15 +32,21 @@ namespace cse210_FinalProject_DragonQuest
         public const int BRICK_WIDTH = 48;
         public const int BRICK_HEIGHT = 24;
 
-        public const int BRICK_SPACE = 5;
+        public const int BRICK_SPACE = 15;
 
-        public const int PADDLE_SPEED = 15;
+        public const int HERO_SPEED = 15;
 
         public const int PADDLE_WIDTH = 96;
         public const int PADDLE_HEIGHT = 24;
 
-        public const int BALL_WIDTH = 24;
-        public const int BALL_HEIGHT = 24;
+        public const int HERO_WIDTH = 76;
+        public const int HERO_HEIGHT = 76;
+        public const int SLIME_WIDTH = 57;
+        public const int SLIME_HEIGHT = 61;
+        public const int DRAKEE_WIDTH = 74;
+        public const int DRAKEE_HEIGHT = 56;
+        public const int DRAGON_WIDTH = 113;
+        public const int DRAGON_HEIGHT = 93;
 
     }
 }
