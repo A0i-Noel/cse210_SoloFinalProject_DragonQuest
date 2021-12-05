@@ -6,7 +6,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
 {
   public class Hero : Actor
   {
-    int HP = 10;
+    int HP = 15;
     int MP = 0;
     int Mighty = 2;
     int Lv = 1;

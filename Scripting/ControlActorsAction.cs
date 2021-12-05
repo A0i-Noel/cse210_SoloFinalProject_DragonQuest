@@ -17,6 +17,10 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     public override void Execute(Dictionary<string, List<Actor>> cast)
     {
       Point direction = _inputService.GetDirection();
+      bool APress = _inputService.IsAPressed();
+      bool SPress = _inputService.IsSPressed();
+      bool DPress = _inputService.IsDPressed();
+
 
       for(int i =0;i <= Constants.SLIME_MAX_NUMBER; i++ )
       {

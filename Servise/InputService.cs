@@ -32,6 +32,21 @@ namespace cse210_FinalProject_DragonQuest.Services
             return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_DOWN);
         }
 
+        public bool IsAPressed()
+        {
+            return Raylib.IsKeyPressed(Raylib_cs.KeyboardKey.KEY_A);
+        }
+
+        public bool IsSPressed()
+        {
+            return Raylib.IsKeyPressed(Raylib_cs.KeyboardKey.KEY_S);
+        }
+
+        public bool IsDPressed()
+        {
+            return Raylib.IsKeyPressed(Raylib_cs.KeyboardKey.KEY_D);
+        }
+
         /// <summary>
         /// Gets the direction asked for by the current key presses
         /// </summary>
@@ -63,6 +78,7 @@ namespace cse210_FinalProject_DragonQuest.Services
             
             return new Point(x, y);
         }
+
 
         /// <summary>
         /// Returns true if the user has attempted to close the window.
