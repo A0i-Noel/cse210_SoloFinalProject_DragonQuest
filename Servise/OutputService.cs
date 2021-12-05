@@ -14,6 +14,7 @@ namespace cse210_FinalProject_DragonQuest.Services
         private Dictionary<string, Raylib_cs.Texture2D> _textures
             = new Dictionary<string, Raylib_cs.Texture2D>();
 
+        Status status = new Status();
         public OutputService()
         {
 
@@ -100,9 +101,9 @@ namespace cse210_FinalProject_DragonQuest.Services
         {
             Raylib_cs.Color color = Raylib_cs.Color.WHITE;
 
-            if (darkText)
+            if (status.Dying())
             {
-                color = Raylib_cs.Color.BLACK;
+                color = Raylib_cs.Color.RED;
             }
 
             Raylib.DrawText(text,
@@ -120,6 +121,13 @@ namespace cse210_FinalProject_DragonQuest.Services
         {
             int x = actor.GetX();
             int y = actor.GetY();
+
+            // if (screen.IsOnScreen(actor.GetPosition()))
+            // {
+            //     Point positionOnScreen = Screen.TranslatePoint(actor.GetPosition());
+            // }
+
+
             int width = actor.GetWidth();
             int height = actor.GetHeight();
 

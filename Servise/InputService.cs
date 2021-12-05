@@ -1,6 +1,5 @@
 using System;
 using Raylib_cs;
-
 using cse210_FinalProject_DragonQuest.Casting;
 
 namespace cse210_FinalProject_DragonQuest.Services
@@ -44,22 +43,22 @@ namespace cse210_FinalProject_DragonQuest.Services
 
             if (IsLeftPressed())
             {
-                x = -1;
+                x = 1;
             }
 
             if (IsRightPressed())
             {
-                x = 1;
+                x = -1;
             }
             
             if (IsUpPressed())
             {
-                y = -1;
+                y = 1;
             }
             
             if (IsDownPressed())
             {
-                y = 1;
+                y = -1;
             }
             
             return new Point(x, y);

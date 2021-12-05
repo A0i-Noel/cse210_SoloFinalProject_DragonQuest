@@ -35,18 +35,18 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             int dx = actor.GetVelocity().GetX();
             int dy = actor.GetVelocity().GetY();
 
-            int newX = (x + dx) % Constants.MAX_X;
-            int newY = (y + dy) % Constants.MAX_Y;
+            int newX = (x + dx);
+            int newY = (y + dy);
 
-            if (newX < 0)
-            {
-                newX = Constants.MAX_X;
-            }
+            // if (newX < 0)
+            // {
+            //     newX = Constants.MAX_X;
+            // }
 
-            if (newY < 0)
-            {
-                newY = Constants.MAX_Y;
-            }
+            // if (newY < 0)
+            // {
+            //     newY = Constants.MAX_Y;
+            // }
 
             actor.SetPosition(new Point(newX, newY));
         }

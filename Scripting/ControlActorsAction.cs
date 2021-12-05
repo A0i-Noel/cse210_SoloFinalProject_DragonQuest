@@ -18,10 +18,23 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     {
       Point direction = _inputService.GetDirection();
 
-      Actor hero = cast["Hero"][0];
+      for(int i =0;i <= Constants.SLIME_MAX_NUMBER; i++ )
+      {
+        Actor slime = cast["Slime"][i];
+        Point Svelocity = direction.Scale(Constants.SLIME_SPEED);
+        slime.SetVelocity(Svelocity);
+      }
 
-      Point velocity = direction.Scale(Constants.HERO_SPEED);
-      hero.SetVelocity(velocity);
+      for(int i =0;i <= Constants.DRAKEE_MAX_NUMBER; i++ )
+      {
+        Actor drakee = cast["Drakee"][i];
+        Point Dvelocity = direction.Scale(Constants.DRAKEE_SPEED);
+        drakee.SetVelocity(Dvelocity);
+      }
+      
+      Actor dragon = cast["Dragon"][0];
+      Point Dravelocity = direction.Scale(Constants.DRAGON_SPEED);
+      dragon.SetVelocity(Dravelocity);
     }
 
   }

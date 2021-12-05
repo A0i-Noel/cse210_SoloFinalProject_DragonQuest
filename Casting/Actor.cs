@@ -9,7 +9,13 @@ namespace cse210_FinalProject_DragonQuest.Casting
     {
         protected Point _position;
         protected Point _velocity;
-
+        protected int _lv = 0;
+        protected int _EXP = 0;
+        protected int _HP = 0;
+        protected int _MP = 0;
+        protected int _MAX_HP = 0;
+        protected int _MAX_MP = 0;
+        protected int _Mighty = 0;
         protected int _width = 0;
         protected int _height = 0;
 
@@ -128,6 +134,77 @@ namespace cse210_FinalProject_DragonQuest.Casting
         {
             _velocity = newVelocity;
         }
+
+        public int GetHP()
+        {
+            return _HP;
+        }
+
+        public void SetHP(int HP)
+        {
+            _HP = HP;
+        }
+
+        public int GetMAX_HP()
+        {
+            return _MAX_HP;
+        }
+
+        public void SetMAX_HP(int MAX_HP)
+        {
+            _MAX_HP = MAX_HP;
+        }
+
+        public int GetMP()
+        {
+            return _MP;
+        }
+
+        public void SetMP(int MP)
+        {
+            _MP = MP;
+        }
+
+        public int GetMAX_MP()
+        {
+            return _MAX_MP;
+        }
+
+        public void SetMAX_MP(int MAX_MP)
+        {
+            _MAX_MP = MAX_MP;
+        }
+
+        public int GetMighty()
+        {
+            return _Mighty;
+        }
+
+        public void SetMighty(int mighty)
+        {
+            _Mighty = mighty;
+        }
+
+        public int GetLevel()
+        {
+            return _lv;
+        }
+
+        public void SetLevel(int lv)
+        {
+            _lv = lv;
+        }
+
+        public int GetEXP()
+        {
+            return _EXP;
+        }
+
+        public void SetEXP(int EXP)
+        {
+            _EXP = EXP;
+        }
+
 
         public void MoveNext()
         {
