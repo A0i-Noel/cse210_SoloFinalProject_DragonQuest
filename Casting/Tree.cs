@@ -4,19 +4,14 @@ using cse210_FinalProject_DragonQuest.Casting;
 
 namespace cse210_FinalProject_DragonQuest.Casting
 {
-  public class Slime : Monsters
+  public class Tree : Actor
   {
-
-    public Slime (int x, int y)
+    public Tree (int x, int y)
     {
-      SetImage(Constants.IMAGE_SLIME);
-      SetHeight(Constants.SLIME_HEIGHT);
-      SetWidth(Constants.SLIME_WIDTH);
-      SetHP(10);
-      SetMP(0);
-      SetMighty(1);
-      SetEXP(1);
-
+      SetImage(Constants.IMAGE_TREE);
+      SetHeight(Constants.HERO_HEIGHT);
+      SetWidth(Constants.HERO_WIDTH);
+      
       int _x = x;
       int _y = y;
       Point position = new Point(_x, _y);

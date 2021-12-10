@@ -6,6 +6,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
 {
   public class Status : Actor
   {
+    Hero hero = new Hero();
     string word = "";
     int HP = 10;
     int MP = 0;
@@ -26,31 +27,12 @@ namespace cse210_FinalProject_DragonQuest.Casting
 
     public void UpdateText()
     {
+      HP = hero.GetHP();
+      MP = hero.GetMP();
+      Lv = hero.GetLevel();
+      MaxHP = hero.GetMAX_HP();
+      MaxMP = hero.GetMAX_MP();
       _text = $"Hero Lv.{Lv}\nHP:{HP}/{MaxHP} MP:{MP}/{MaxMP}";
-    }
-
-    public void ChangeHP(int Newdamage)
-    {
-      HP -= Newdamage;
-      UpdateText();
-    }
-
-    public void ChangeMP(int Newconsume)
-    {
-      MP -= Newconsume;
-      UpdateText();
-    }
-
-    public void ChangeLv(int Newlv)
-    {
-      Lv += Newlv;
-      UpdateText();
-    }
-
-    public void ChangeMighty(int NewMighty)
-    {
-      Mighty += NewMighty;
-      UpdateText();
     }
 
     public bool Dying()

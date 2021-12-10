@@ -125,6 +125,11 @@ namespace cse210_FinalProject_DragonQuest.Casting
             _position = position;
         }
 
+        public void Delete()
+        {
+
+        }
+
         public Point GetVelocity()
         {
             return _velocity;

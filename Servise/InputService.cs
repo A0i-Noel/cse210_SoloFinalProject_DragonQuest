@@ -80,6 +80,7 @@ namespace cse210_FinalProject_DragonQuest.Services
         }
 
 
+
         /// <summary>
         /// Returns true if the user has attempted to close the window.
         /// </summary>

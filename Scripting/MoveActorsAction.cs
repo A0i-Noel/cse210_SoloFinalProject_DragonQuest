@@ -11,17 +11,43 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     /// </summary>
     public class MoveActorsAction : Action
     {
-         public MoveActorsAction()
+        PhysicsService _physicsService;
+        bool wall = true;
+         public MoveActorsAction(PhysicsService physicsService)
         {
+            _physicsService = physicsService;
         }
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
+            
+            Actor hero = cast["Hero"][0];
+            List<Actor> Trees = cast["Tree"];
+            List<Actor> Seas = cast["Sea"];
+            List<Actor> hMountains = cast["hMountain"];
+            
+
+            foreach(Actor mountain in hMountains)
+            {
+                CollisionWall(hero, mountain);
+            }
+            foreach(Actor tree in Trees)
+            {
+                CollisionWall(hero, tree);
+            }
+            foreach(Actor sea in Seas)
+            {
+                CollisionWall(hero, sea);
+            }
+
             foreach (List<Actor> group in cast.Values)
             {
                 foreach (Actor actor in group)
                 {
-                    MoveActor(actor);
+                    
+                        MoveActor(actor);
+                    
+                    
 
                 }
             }
@@ -29,6 +55,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
         
         private void MoveActor(Actor actor)
         {
+            
+            
+            
             int x = actor.GetX();
             int y = actor.GetY();
 
@@ -38,18 +67,23 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             int newX = (x + dx);
             int newY = (y + dy);
 
-            // if (newX < 0)
-            // {
-            //     newX = Constants.MAX_X;
-            // }
+           
 
-            // if (newY < 0)
-            // {
-            //     newY = Constants.MAX_Y;
-            // }
+           
 
             actor.SetPosition(new Point(newX, newY));
+            // wall = true;
         }
+
+        public bool CollisionWall(Actor actor, Actor map)
+    {
+      
+      
+        Console.WriteLine("Wall!!");
+        return _physicsService.IsCollision(actor, map);
+      
+      
+    }
 
     }
 }

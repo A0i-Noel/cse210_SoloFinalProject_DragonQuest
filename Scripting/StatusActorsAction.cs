@@ -16,19 +16,13 @@ namespace cse210_FinalProject_DragonQuest.Scripting
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
-            foreach (List<Actor> group in cast.Values)
-            {
-                foreach (Actor actor in group)
-                {
-                    Dmagecount(actor);
-
-                }
-            }
+          Actor hero = cast["Hero"][0];
         }
 
-        public void Dmagecount(Actor actor)
-        {
+        
 
-        }
+       
+
+        
     }
 }
