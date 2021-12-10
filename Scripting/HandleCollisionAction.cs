@@ -10,14 +10,14 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     /// </summary>
     public class HandleCollisionAction : Action
     {
-        private PhysicsService _physucsService;
+        private PhysicsService _physicsService;
         private InputService _inputServise;
         private AudioService _audioServise;
         Random rnd = new Random();
 
         public HandleCollisionAction(PhysicsService physicsService, InputService inputService, AudioService audioService)
         {
-            _physucsService = physicsService;
+            _physicsService = physicsService;
             _inputServise = inputService;
             _audioServise = audioService;
         }
@@ -42,7 +42,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             foreach(Actor slime in slimes)
             {
                 
-                if(_physucsService.IsCollision(a, slime) && _inputServise.IsAPressed())
+                if(_physicsService.IsCollision(a, slime) && _inputServise.IsAPressed())
                 {
                     Attack(hero, slime);
                     if(Die(slime))
@@ -71,7 +71,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             foreach(Actor actor in drakees)
             {
                 Drakee drakee = (Drakee)actor;
-                if(_physucsService.IsCollision(a, drakee) && _inputServise.IsAPressed())
+                if(_physicsService.IsCollision(a, drakee) && _inputServise.IsAPressed())
                 {
                     Attack(hero, drakee);
                     if(Die(drakee))
@@ -88,7 +88,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     }
                 }
             }
-                if(_physucsService.IsCollision(a, dragon) && _inputServise.IsAPressed())
+                if(_physicsService.IsCollision(a, dragon) && _inputServise.IsAPressed())
                 {
                     Attack(hero, dragon);
                     if(Die(dragon))
@@ -104,19 +104,6 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                         _status.UpdateText();
                     }
                 }
-
-            // For map
-
-            List<Actor> _hMountains = cast["hMountain"];
-            List<Actor> _Trees = cast["Tree"];
-            List<Actor> _Seas = cast["Sea"];
-
-            
-                
-            
-
-
-
         }
 
         public void Attack(Actor first, Actor second)

@@ -8,29 +8,32 @@ namespace cse210_FinalProject_DragonQuest.Scripting
   public class ControlActorsAction : Action
   {
     InputService _inputService;
-    
+    PhysicsService _physicsService;
+    bool wall = true;
+    int wallCheck = 0;
     
 
-    public ControlActorsAction(InputService inputService)
+    public ControlActorsAction(InputService inputService, PhysicsService physicsService)
     {
       _inputService = inputService;
+      _physicsService = physicsService;
     }
 
     public override void Execute(Dictionary<string, List<Actor>> cast)
     {
       Point direction = _inputService.GetDirection();
       Point stop = new Point(0, 0);
+      
       bool APress = _inputService.IsAPressed();
       bool SPress = _inputService.IsSPressed();
       bool DPress = _inputService.IsDPressed();
 
       int cField = 0;
-      int cDesert = 0;
-      int cTree = 0;
+      // int cTree = 0;
       int cWater = 0;
-      int cSea = 0;
-      int csMountain = 0;
-      int chMountain = 0;
+      // int cSea = 0;
+      // int chMountain = 0;
+      int cWall = 0;
 
       Actor hero = cast["Hero"][0];
 
@@ -42,22 +45,11 @@ namespace cse210_FinalProject_DragonQuest.Scripting
         cField += 1;
       }
 
-      List<Actor> Deserts = cast["Desert"];
-      foreach(Actor m in Deserts)
-      {
-        cDesert += 1;
-      }
 
-      List<Actor> Trees = cast["Tree"];
-      foreach(Actor m in Trees)
+      List<Actor> Walls = cast["Wall"];
+      foreach(Actor m in Walls)
       {
-        cTree += 1;
-      }
-
-      List<Actor> Seas = cast["Sea"];
-      foreach(Actor m in Seas)
-      {
-        cSea += 1;
+        cWall += 1;
       }
 
       List<Actor> Waters = cast["Water"];
@@ -66,91 +58,217 @@ namespace cse210_FinalProject_DragonQuest.Scripting
         cWater += 1;
       }
 
-      List<Actor> sMountains = cast["sMountain"];
-      foreach(Actor m in sMountains)
+      foreach(Actor wall in Walls)
       {
-        csMountain += 1;
+        if(_physicsService.IsCollision(hero, wall))
+        {
+          wallCheck += 1;
+        }
       }
-
-      List<Actor> hMountains = cast["hMountain"];
-      foreach(Actor m in hMountains)
-      {
-        chMountain += 1;
-      }
-
-      
-
-      
 
         for(int i =0;i < cField; i++ )
         {
           Actor field = cast["Field"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
+          
           field.SetVelocity(Svelocity);
+          
           
         }
 
-        for(int i =0;i < cDesert; i++ )
-        {
-          Actor desert = cast["Desert"][i];
-           Point Svelocity = direction.Scale(Constants.MAP_SPEED);
-          desert.SetVelocity(Svelocity);
-        }
-
-        for(int i =0;i < chMountain; i++ )
-        {
-          Actor hMountain = cast["hMountain"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
-          hMountain.SetVelocity(Svelocity);
-        }
-
-        for(int i =0;i < csMountain; i++ )
-        {
-          Actor sMountain = cast["sMountain"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
-          sMountain.SetVelocity(Svelocity);
-        }
-
-        for(int i =0;i < cTree; i++ )
-        {
-          Actor Tree = cast["Tree"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
-          Tree.SetVelocity(Svelocity);
-        }
 
         for(int i =0;i < cWater; i++ )
         {
           Actor Water = cast["Water"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
           Water.SetVelocity(Svelocity);
         }
 
-        for(int i =0;i < cSea; i++ )
+        for(int i =0;i < cWall; i++ )
         {
-          Actor Sea = cast["Sea"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
-          Sea.SetVelocity(Svelocity);
+          Actor Wall = cast["Wall"][i];
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
+          Wall.SetVelocity(Svelocity);
         }
 
         for(int i =0;i <= Constants.SLIME_MAX_NUMBER; i++ )
         {
           Actor slime = cast["Slime"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
           slime.SetVelocity(Svelocity);
         }
 
         for(int i =0;i <= Constants.DRAKEE_MAX_NUMBER; i++ )
         {
           Actor drakee = cast["Drakee"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
           drakee.SetVelocity(Svelocity);
         }
 
         for(int i = 0; i < 1;i++){
           Actor dragon = cast["Dragon"][i];
-          Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+          Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
+          if(wallCheck >= 1)
+          {
+            
+
+            if(_inputService.IsDownPressed())
+          {
+            Svelocity = new Point(0, -18);
+           
+          }
+
+          if(_inputService.IsUpPressed())
+          {
+            Svelocity = new Point(0, 18);
+          }
+
+          if(_inputService.IsRightPressed())
+          {
+            Svelocity = new Point(-18, 0);
+          }
+
+          if(_inputService.IsLeftPressed())
+          {
+            Svelocity = new Point(18, 0);
+          }
+
+          }
           dragon.SetVelocity(Svelocity);
         }
+
+        Console.WriteLine($"{wallCheck}");
+        wallCheck = 0;
         
       
 
@@ -182,7 +300,10 @@ namespace cse210_FinalProject_DragonQuest.Scripting
       
     }
 
-    
+    public int GetWallCheck()
+    {
+      return wallCheck;
+    }
 
 
    
