@@ -340,7 +340,7 @@ namespace cse210_FinalProject_DragonQuest
             
 
             cast["Status"] = new List<Actor>();
-            Status _Status = new Status();
+            Status _Status = new Status(_Hero);
             cast["Status"].Add(_Status);
 
 

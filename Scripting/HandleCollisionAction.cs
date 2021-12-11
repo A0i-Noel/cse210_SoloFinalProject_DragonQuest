@@ -48,7 +48,13 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     Attack(hero, slime);
                     if(Die(slime))
                     {
+                        int EXP = slime.GetEXP();
+                        int HEXP = hero.GetEXP();
+                        HEXP += EXP;
+                        hero.SetEXP(HEXP);
+                        LevelUpCheck(hero);
                         Sremove.Add(slime);
+                        
                     }
 
                     Random r = new Random();
@@ -80,6 +86,11 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     Attack(hero, drakee);
                     if(Die(drakee))
                     {
+                        int EXP = drakee.GetEXP();
+                        int HEXP = hero.GetEXP();
+                        HEXP += EXP;
+                        hero.SetEXP(HEXP);
+                        LevelUpCheck(hero);
                         Dremove.Add(drakee);
                     }
 
@@ -104,6 +115,11 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     Attack(hero, dragon);
                     if(Die(dragon))
                     {
+                        int EXP = dragon.GetEXP();
+                        int HEXP = hero.GetEXP();
+                        HEXP += EXP;
+                        hero.SetEXP(HEXP);
+                        LevelUpCheck(hero);
                        Draremove.Add(dragon);
                     }
 
@@ -128,7 +144,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             hp -= first.GetMighty() - rnd.Next(-1, 1);
             second.SetHP(hp);
             _audioServise.PlaySound(Constants.SOUND_ATTACK);
-            Console.WriteLine($"{hp}");
+            // Console.WriteLine($"{hp}");
         }
 
         public bool Die(Actor actor)
@@ -136,6 +152,32 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             int life = actor.GetHP();
             
             return life <= 0;
+        }
+
+        public void LevelUpCheck(Actor hero)
+        {
+            List<int> NeedEXP = hero.GetNeedEXP();
+            int HEXP = hero.GetEXP();
+            if(HEXP >= NeedEXP[0])
+            {
+                int HeroLv = hero.GetLevel();
+                _audioServise.PlaySound(Constants.SOUND_LEVELUP);
+                HeroLv += 1;
+                hero.SetLevel(HeroLv);
+                StatusUp(hero);
+                NeedEXP.RemoveAt(0);
+            }
+
+        }
+
+        public void StatusUp(Actor hero)
+        {
+            hero.SetMAX_HP(hero.GetMAX_HP() + 5);
+            hero.SetMAX_MP(hero.GetMAX_MP() + 5);
+            hero.SetHP(hero.GetMAX_HP());
+            hero.SetMP(hero.GetMAX_MP());
+            hero.SetMighty(hero.GetMighty() + 2);
+            
         }
 
         

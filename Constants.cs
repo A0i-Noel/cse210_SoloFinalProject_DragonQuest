@@ -16,6 +16,7 @@ namespace cse210_FinalProject_DragonQuest
       public const int DEFAULT_TEXT_OFFSET = 4;
       public const string SOUND_START = "./Assets/Openning.wav";
       public const string SOUND_ATTACK = "./Assets/AttackAudio.wav";
+      public const string SOUND_LEVELUP = "./Assets/LevelUp.wav";
       public const string SOUND_BOUNCE = "./Assets/boing.wav";
       public const string SOUND_OVER = "./Assets/over.wav";
       public const string IMAGE_TREE = "./Assets/Tree.png";

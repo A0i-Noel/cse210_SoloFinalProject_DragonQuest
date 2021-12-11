@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace cse210_FinalProject_DragonQuest.Casting
 {
@@ -11,6 +12,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
         protected Point _velocity;
         protected int _lv = 0;
         protected int _EXP = 0;
+        protected List<int> _NeedEXP = new List<int>();
         protected int _HP = 0;
         protected int _MP = 0;
         protected int _MAX_HP = 0;
@@ -18,6 +20,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
         protected int _Mighty = 0;
         protected int _width = 0;
         protected int _height = 0;
+        protected bool redText = false;
 
         protected string _text = "";
         private string _image = "";
@@ -48,6 +51,11 @@ namespace cse210_FinalProject_DragonQuest.Casting
         public bool HasText()
         {
             return _text != "";
+        }
+
+        public bool RedText()
+        {
+            return redText;
         }
 
         public bool HasBox()
@@ -208,6 +216,26 @@ namespace cse210_FinalProject_DragonQuest.Casting
         public void SetEXP(int EXP)
         {
             _EXP = EXP;
+        }
+
+        public List<int> GetNeedEXP()
+        {
+            return _NeedEXP;
+        }
+
+        public void SetNeedEXP(int EXP0, int EXP1, int EXP2, int EXP3, int EXP4, int EXP5, int EXP6, int EXP7, int EXP8, int EXP9)
+        {
+            _NeedEXP.Add(EXP0);
+            _NeedEXP.Add(EXP1);
+            _NeedEXP.Add(EXP2);
+            _NeedEXP.Add(EXP3);
+            _NeedEXP.Add(EXP4);
+            _NeedEXP.Add(EXP5);
+            _NeedEXP.Add(EXP6);
+            _NeedEXP.Add(EXP7);
+            _NeedEXP.Add(EXP8);
+            _NeedEXP.Add(EXP9);
+
         }
 
 
