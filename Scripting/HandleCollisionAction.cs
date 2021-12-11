@@ -36,6 +36,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
 
             List<Actor> Sremove = new List<Actor>();
             List<Actor> Dremove = new List<Actor>();
+            List<Actor> Draremove = new List<Actor>();
 
             // for monster and hero actions
 
@@ -61,10 +62,13 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     }
                 }
             }
-            foreach(Actor slime in Sremove)
+            if(Sremove.Count >= 1)
             {
-                cast["Slime"].Remove(slime);
+                Actor die = Sremove[0];
+                cast["Slime"].Remove(die);
             }
+                
+            
 
             
 
@@ -76,7 +80,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     Attack(hero, drakee);
                     if(Die(drakee))
                     {
-                 
+                        Dremove.Add(drakee);
                     }
 
                     Random r = new Random();
@@ -88,12 +92,19 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                     }
                 }
             }
+            if(Dremove.Count >= 1)
+            {
+                Actor die = Dremove[0];
+                cast["Drakee"].Remove(die);
+            }
+
+
                 if(_physicsService.IsCollision(a, dragon) && _inputServise.IsAPressed())
                 {
                     Attack(hero, dragon);
                     if(Die(dragon))
                     {
-                       
+                       Draremove.Add(dragon);
                     }
 
                     Random r = new Random();
@@ -104,6 +115,11 @@ namespace cse210_FinalProject_DragonQuest.Scripting
                         _status.UpdateText();
                     }
                 }
+                if(Draremove.Count >= 1)
+            {
+                Actor die = Draremove[0];
+                cast["Dragon"].Remove(die);
+            }
         }
 
         public void Attack(Actor first, Actor second)

@@ -63,7 +63,8 @@ namespace cse210_FinalProject_DragonQuest.Scripting
            
 
             actor.SetPosition(new Point(newX, newY));
-            // wall = true;
+            Checker = 0;
+            
         }
 
      

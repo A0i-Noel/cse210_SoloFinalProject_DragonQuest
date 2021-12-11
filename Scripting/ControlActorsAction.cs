@@ -58,6 +58,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
         cWater += 1;
       }
 
+
       foreach(Actor wall in Walls)
       {
         if(_physicsService.IsCollision(hero, wall))
@@ -169,7 +170,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           Wall.SetVelocity(Svelocity);
         }
 
-        for(int i =0;i <= Constants.SLIME_MAX_NUMBER; i++ )
+        List<Actor> slimes = cast["Slime"];
+
+        for(int i =0;i < (int)slimes.Count; i++ )
         {
           Actor slime = cast["Slime"][i];
           Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
@@ -202,7 +205,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           slime.SetVelocity(Svelocity);
         }
 
-        for(int i =0;i <= Constants.DRAKEE_MAX_NUMBER; i++ )
+        List<Actor> drakees = cast["Drakee"];
+
+        for(int i =0;i < (int)drakees.Count; i++ )
         {
           Actor drakee = cast["Drakee"][i];
           Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
@@ -235,7 +240,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           drakee.SetVelocity(Svelocity);
         }
 
-        for(int i = 0; i < 1;i++){
+        List<Actor> dragons = cast["Dragon"];
+
+        for(int i = 0; i < (int)dragons.Count;i++){
           Actor dragon = cast["Dragon"][i];
           Point Svelocity = direction.Scale(Constants.MAP_SPEED); 
           if(wallCheck >= 1)
@@ -267,7 +274,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           dragon.SetVelocity(Svelocity);
         }
 
-        Console.WriteLine($"{wallCheck}");
+        // Console.WriteLine($"{wallCheck}");
         wallCheck = 0;
         
       

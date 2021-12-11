@@ -6,7 +6,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
 {
   public class Status : Actor
   {
-    Hero hero = new Hero();
+        
     string word = "";
     int HP = 10;
     int MP = 0;

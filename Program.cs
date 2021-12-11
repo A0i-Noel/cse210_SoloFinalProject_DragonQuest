@@ -328,7 +328,9 @@ namespace cse210_FinalProject_DragonQuest
 
             cast["Dragon"] = new List<Actor>();
             Dragon _Dragon = new Dragon(5800 , 3900);
+            Dragon _Dragon2 = new Dragon(8000, 8000);
             cast["Dragon"].Add(_Dragon);
+            cast["Dragon"].Add(_Dragon2);
 
 
             cast["Hero"] = new List<Actor>();
@@ -359,7 +361,7 @@ namespace cse210_FinalProject_DragonQuest
             script["input"].Add(_CAA);
 
             script["update"] = new List<Action>();
-            MoveActorsAction _MAA = new MoveActorsAction();
+            MoveActorsAction _MAA = new MoveActorsAction(inputService, physicsService);
             script["update"].Add(_MAA);
             HandleCollisionAction _HCA = new HandleCollisionAction(physicsService, inputService, audioService);
             script["update"].Add(_HCA);
