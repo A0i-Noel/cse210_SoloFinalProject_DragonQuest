@@ -32,7 +32,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             List<Actor> drakees = cast["Drakee"];
             Actor dragon = cast["Dragon"][0];
             Actor status = cast["Status"][0];
-            Actor board = cast["Board"][0];
+            // Actor board = cast["Board"][0];
             Status _status = (Status)status;
             List<Actor>  Herbs = cast["Item"];
 
