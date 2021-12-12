@@ -23,6 +23,7 @@ namespace cse210_FinalProject_DragonQuest
             cast["Drakee"] = new List<Actor>();
             cast["Dragon"] = new List<Actor>();
             cast["Item"] = new List<Actor>();
+            cast["Board"] = new List<Actor>();
             cast["Wall"] = new List<Actor>();
             
             for (int c = 0;c < 54;c++){
@@ -120,7 +121,7 @@ namespace cse210_FinalProject_DragonQuest
             }
 
           Board _board = new Board(532, 228);
-          cast["Wall"].Add(_board);
+          cast["Board"].Add(_board);
 
 
             for (int c = 0;c < 6;c++){
@@ -402,9 +403,20 @@ namespace cse210_FinalProject_DragonQuest
             outputService.OpenWindow(Constants.Screen_X, Constants.Screen_Y, "Dragon-Quest", Constants.FRAME_RATE);
             audioService.StartAudio();
             audioService.PlaySound(Constants.SOUND_START);
-
             Director theDirector = new Director(cast, script);
+            audioService.PlaySound(Constants.SOUND_FIELD);
+            audioService.PlaySound(Constants.SOUND_FIELD);
+            audioService.PlaySound(Constants.SOUND_FIELD);
+            audioService.PlaySound(Constants.SOUND_FIELD);
+            audioService.PlaySound(Constants.SOUND_FIELD);
             theDirector.Direct();
+            
+                
+            
+            
+            
+
+            
 
             audioService.StopAudio();
         }

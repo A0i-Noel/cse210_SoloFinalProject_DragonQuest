@@ -12,6 +12,7 @@ namespace cse210_FinalProject_DragonQuest.Casting
       SetImage(Constants.IMAGE_BOARD);
       SetHeight(Constants.SLIME_HEIGHT);
       SetWidth(Constants.SLIME_WIDTH);
+      SetText(Constants.TEXT_INTRO);
     
 
       int _x = x;

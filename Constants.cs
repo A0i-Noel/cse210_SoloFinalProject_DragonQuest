@@ -18,7 +18,7 @@ namespace cse210_FinalProject_DragonQuest
       public const string SOUND_ATTACK = "./Assets/AttackAudio.wav";
       public const string SOUND_SPELL = "./Assets/Spell.wav";
       public const string SOUND_LEVELUP = "./Assets/LevelUp.wav";
-      public const string SOUND_BOUNCE = "./Assets/boing.wav";
+      public const string SOUND_FIELD = "./Assets/FieldAudio.wav";
       public const string SOUND_OVER = "./Assets/over.wav";
       public const string IMAGE_TREE = "./Assets/Tree.png";
       public const string IMAGE_WATER = "./Assets/water.png";
@@ -50,12 +50,13 @@ namespace cse210_FinalProject_DragonQuest
         public const int HERO_SPEED = 15;
         public const int SCREEN_WIDTH = 1200;
         public const int SCREEN_HEIGHT = 800;
+        
 
         public const int MAP_WIDTH = 76;
         public const int MAP_HEIGHT = 76;
         public const int MAP_SPEED = 15;
-        public const int HERO_WIDTH = 70;
-        public const int HERO_HEIGHT = 70;
+        public const int HERO_WIDTH = 60;
+        public const int HERO_HEIGHT = 60;
         public const int SLIME_WIDTH = 57;
         public const int SLIME_HEIGHT = 61;
         public const int SLIME_SPEED = 15;
@@ -76,6 +77,7 @@ namespace cse210_FinalProject_DragonQuest
         public const int DRAGON_MAX_NUMBER = 1;
         public const int ATTACK_HEIGHT = 76;
         public const int ATTACK_WIDTH = 76;
+        public const string TEXT_INTRO = "./Assets/Intro.txt";
 
     }
 }
