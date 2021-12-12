@@ -12,12 +12,16 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     public class MoveActorsAction : Action
     {
         InputService _inputService;
-    PhysicsService _physicsService;
+        PhysicsService _physicsService;
+        public static int wallCheck;
+        
          public MoveActorsAction(InputService inputService, PhysicsService physicsService)
         {
             _inputService = inputService;
             _physicsService = physicsService;
         }
+
+         
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
@@ -27,11 +31,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             {
                 foreach (Actor actor in group)
                 {
-                    
+                   
                         MoveActor(actor);
                     
-                    
-
                 }
             }
         }
@@ -39,7 +41,7 @@ namespace cse210_FinalProject_DragonQuest.Scripting
         private void MoveActor(Actor actor)
         {
             
-            ControlActorsAction CAA = new ControlActorsAction(_inputService, _physicsService);
+           
             
             int x = actor.GetX();
             int y = actor.GetY();
@@ -47,23 +49,26 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             int dx = actor.GetVelocity().GetX();
             int dy = actor.GetVelocity().GetY();
 
-            int newX = (x + dx);
-            int newY = (y + dy);
-
-            int Checker = CAA.GetWallCheck();
-
-            if(Checker >= 1)
+            if(ControlActorsAction.WC() >= 1)
             {
-                newX = x;
-                newY = y;
+                dx = -dx;
+                dy = -dy;
             }
 
-           
+            int newX = (x + dx);
+            int newY = (y + dy);
+            // ControlActorsAction CAA = new ControlActorsAction(_inputService, _physicsService);
+            // int Checker = CAA.wallCheck;
+            // Console.WriteLine($"{Checker}");
+            
 
-           
+            
+
 
             actor.SetPosition(new Point(newX, newY));
-            Checker = 0;
+            // CAA.SetWallCheck(0);
+           
+            
             
         }
 

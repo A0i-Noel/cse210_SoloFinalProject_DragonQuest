@@ -21,6 +21,8 @@ namespace cse210_FinalProject_DragonQuest.Casting
         protected int _width = 0;
         protected int _height = 0;
         protected bool redText = false;
+        protected int OLD_x;
+        protected int OLD_y;
 
         protected string _text = "";
         private string _image = "";
@@ -81,6 +83,26 @@ namespace cse210_FinalProject_DragonQuest.Casting
         public int GetY()
         {
             return _position.GetY();
+        }
+
+        public int GetOLD_X()
+        {
+            return _position.GetOLD_X();
+        }
+
+        public int GetOLD_Y()
+        {
+            return _position.GetOLD_Y();
+        }
+
+        public int SetOLD_X(int old_x)
+        {
+            return OLD_x = old_x;
+        }
+
+        public int SetOLD_Y(int old_y)
+        {
+            return OLD_y = old_y;
         }
 
         public int GetLeftEdge()
@@ -244,23 +266,23 @@ namespace cse210_FinalProject_DragonQuest.Casting
             int x = _position.GetX();
             int y = _position.GetY();
 
-            int dx = _velocity.GetX();
-            int dy = _velocity.GetY();
+            // int dx = _velocity.GetX();
+            // int dy = _velocity.GetY();
 
-            int newX = (x + dx) % Constants.MAX_X;
-            int newY = (y + dy) % Constants.MAX_Y;
+            // int newX = (x + dx) % Constants.MAX_X;
+            // int newY = (y + dy) % Constants.MAX_Y;
 
-            if (newX < 0)
-            {
-                newX = Constants.MAX_X;
-            }
+            // if (newX < 0)
+            // {
+            //     newX = Constants.MAX_X;
+            // }
 
-            if (newY < 0)
-            {
-                newY = Constants.MAX_Y;
-            }
+            // if (newY < 0)
+            // {
+            //     newY = Constants.MAX_Y;
+            // }
 
-            _position = new Point(newX, newY);
+            _position = new Point(x, y);
         }
 
         public override string ToString()

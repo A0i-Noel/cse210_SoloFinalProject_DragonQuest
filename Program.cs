@@ -19,6 +19,10 @@ namespace cse210_FinalProject_DragonQuest
 
             cast["Field"] = new List<Actor>();
             cast["Water"] = new List<Actor>();
+            cast["Slime"] = new List<Actor>();
+            cast["Drakee"] = new List<Actor>();
+            cast["Dragon"] = new List<Actor>();
+            cast["Item"] = new List<Actor>();
             cast["Wall"] = new List<Actor>();
             
             for (int c = 0;c < 54;c++){
@@ -65,6 +69,58 @@ namespace cse210_FinalProject_DragonQuest
                     cast["Field"].Add(_Desert);
                 }
             }
+
+                        
+            Slime _Slime = new Slime(Constants.MAX_X/2, 300);
+            cast["Slime"].Add(_Slime);
+            for (int i = 1; i <= Constants.SLIME_MAX_NUMBER; i++)
+            {
+                Random r1 = new System.Random();
+                Random r2 = new System.Random();
+                int x = r1.Next(0, Constants.MAX_X);
+                int y = r2.Next(0, Constants.MAX_Y);
+                Slime slime = new Slime(x, y);
+                cast["Slime"].Add(slime);
+            }
+
+
+           
+
+ 
+           
+            Drakee _Drakee = new Drakee(Constants.MAX_X/2, 600);
+            cast["Drakee"].Add(_Drakee);
+            for (int i = 1; i <= Constants.DRAKEE_MAX_NUMBER; i++)
+            {
+                Random r1 = new System.Random();
+                Random r2 = new System.Random();
+                int x = r1.Next(0, Constants.MAX_X);
+                int y = r2.Next(0, Constants.MAX_Y);
+                Drakee drakee = new Drakee(x, y);
+                cast["Drakee"].Add(drakee);
+            }
+
+     
+
+            
+            Dragon _Dragon = new Dragon(5800 , 3900);
+            Dragon _Dragon2 = new Dragon(8000, 8000);
+            cast["Dragon"].Add(_Dragon);
+            cast["Dragon"].Add(_Dragon2);
+
+            
+            for (int i = 1; i <= 30; i++)
+            {
+                Random r1 = new System.Random();
+                Random r2 = new System.Random();
+                int x = r1.Next(0, Constants.MAX_X);
+                int y = r2.Next(0, Constants.MAX_Y);
+                Herb herb = new Herb(x, y);
+                cast["Item"].Add(herb);
+            }
+
+          Board _board = new Board(532, 228);
+          cast["Wall"].Add(_board);
 
 
             for (int c = 0;c < 6;c++){
@@ -294,54 +350,23 @@ namespace cse210_FinalProject_DragonQuest
             Attack _Attack = new Attack();
             cast["Attack"].Add(_Attack);
 
-            cast["Slime"] = new List<Actor>();
-            Slime _Slime = new Slime(Constants.MAX_X/2, 300);
-            cast["Slime"].Add(_Slime);
-            for (int i = 1; i <= Constants.SLIME_MAX_NUMBER; i++)
-            {
-                Random r1 = new System.Random();
-                Random r2 = new System.Random();
-                int x = r1.Next(0, Constants.MAX_X);
-                int y = r2.Next(0, Constants.MAX_Y);
-                Slime slime = new Slime(x, y);
-                cast["Slime"].Add(slime);
-            }
-
-
-           
-
- 
-            cast["Drakee"] = new List<Actor>();
-            Drakee _Drakee = new Drakee(Constants.MAX_X/2, 600);
-            cast["Drakee"].Add(_Drakee);
-            for (int i = 1; i <= Constants.DRAKEE_MAX_NUMBER; i++)
-            {
-                Random r1 = new System.Random();
-                Random r2 = new System.Random();
-                int x = r1.Next(0, Constants.MAX_X);
-                int y = r2.Next(0, Constants.MAX_Y);
-                Drakee drakee = new Drakee(x, y);
-                cast["Drakee"].Add(drakee);
-            }
-
-     
-
-            cast["Dragon"] = new List<Actor>();
-            Dragon _Dragon = new Dragon(5800 , 3900);
-            Dragon _Dragon2 = new Dragon(8000, 8000);
-            cast["Dragon"].Add(_Dragon);
-            cast["Dragon"].Add(_Dragon2);
-
 
             cast["Hero"] = new List<Actor>();
             Hero _Hero = new Hero();
             cast["Hero"].Add(_Hero);
 
+            cast["Cover"] = new List<Actor>();
+            StatusC _C = new StatusC();
+            cast["Cover"].Add(_C);
             
 
             cast["Status"] = new List<Actor>();
             Status _Status = new Status(_Hero);
+            BottonIntro _BI = new BottonIntro();
+            
             cast["Status"].Add(_Status);
+            cast["Status"].Add(_BI);
+           
 
 
             
@@ -352,19 +377,21 @@ namespace cse210_FinalProject_DragonQuest
             // Create the script
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();
 
-            
-
+            script["input"] = new List<Action>();
+            script["update"] = new List<Action>();
             script["output"] = new List<Action>();
 
-            script["input"] = new List<Action>();
+            
             ControlActorsAction _CAA = new ControlActorsAction(inputService, physicsService);
             script["input"].Add(_CAA);
 
-            script["update"] = new List<Action>();
+            
             MoveActorsAction _MAA = new MoveActorsAction(inputService, physicsService);
             script["update"].Add(_MAA);
             HandleCollisionAction _HCA = new HandleCollisionAction(physicsService, inputService, audioService);
             script["update"].Add(_HCA);
+            StatusActorsAction _SAA = new StatusActorsAction(_Status);
+            script["update"].Add(_SAA);
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);

@@ -9,8 +9,8 @@ namespace cse210_FinalProject_DragonQuest.Casting
     public hMountain (int x, int y)
     {
       SetImage(Constants.IMAGE_HMOUNTAIN);
-      SetHeight(Constants.HERO_HEIGHT);
-      SetWidth(Constants.HERO_WIDTH);
+      SetHeight(Constants.MAP_HEIGHT);
+      SetWidth(Constants.MAP_WIDTH);
       
       int _x = x;
       int _y = y;

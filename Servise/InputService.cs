@@ -79,6 +79,34 @@ namespace cse210_FinalProject_DragonQuest.Services
             return new Point(x, y);
         }
 
+        public Point GetReverseDirection()
+        {
+            int x = 0;
+            int y = 0;
+
+            if (IsLeftPressed())
+            {
+                x = -1;
+            }
+
+            if (IsRightPressed())
+            {
+                x = 1;
+            }
+            
+            if (IsUpPressed())
+            {
+                y = -1;
+            }
+            
+            if (IsDownPressed())
+            {
+                y = 1;
+            }
+            
+            return new Point(x, y);
+        }
+
 
 
         /// <summary>

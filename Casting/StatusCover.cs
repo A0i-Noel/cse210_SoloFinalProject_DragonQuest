@@ -4,21 +4,21 @@ using cse210_FinalProject_DragonQuest.Casting;
 
 namespace cse210_FinalProject_DragonQuest.Casting
 {
-  public class Field : Actor
+  public class StatusC : Actor
   {
-    public Field (int x, int y)
+    public StatusC()
     {
-      SetImage(Constants.IMAGE_FIELD);
-      SetHeight(Constants.MAP_HEIGHT);
-      SetWidth(Constants.MAP_WIDTH);
+      SetImage(Constants.IMAGE_BLACK);
+      SetHeight(Constants.HERO_HEIGHT);
+      SetWidth(Constants.HERO_WIDTH);
       
-      int _x = x;
-      int _y = y;
-      Point position = new Point(_x, _y);
+      
+      Point position = new Point(0, 0);
       SetPosition(position);
             
 
       SetVelocity(new Point(0, 0));
     }
+      
   }
 }

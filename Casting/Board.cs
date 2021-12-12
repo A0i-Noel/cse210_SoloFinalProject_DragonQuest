@@ -4,14 +4,16 @@ using cse210_FinalProject_DragonQuest.Casting;
 
 namespace cse210_FinalProject_DragonQuest.Casting
 {
-  public class Field : Actor
+  public class Board : Monsters
   {
-    public Field (int x, int y)
+
+    public Board (int x, int y)
     {
-      SetImage(Constants.IMAGE_FIELD);
-      SetHeight(Constants.MAP_HEIGHT);
-      SetWidth(Constants.MAP_WIDTH);
-      
+      SetImage(Constants.IMAGE_BOARD);
+      SetHeight(Constants.SLIME_HEIGHT);
+      SetWidth(Constants.SLIME_WIDTH);
+    
+
       int _x = x;
       int _y = y;
       Point position = new Point(_x, _y);

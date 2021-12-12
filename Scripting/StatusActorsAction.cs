@@ -10,13 +10,15 @@ namespace cse210_FinalProject_DragonQuest.Scripting
     /// </summary>
     public class StatusActorsAction : Action
     {
-       public StatusActorsAction()
+        Status _status;
+       public StatusActorsAction(Status s)
         {
+            _status = s;
         }
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
-          Actor hero = cast["Hero"][0];
+          _status.UpdateText();
         }
 
         

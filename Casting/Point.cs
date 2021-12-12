@@ -11,6 +11,9 @@ namespace cse210_FinalProject_DragonQuest.Casting
     {
         private int _x;
         private int _y;
+        private int OLD_x;
+        private int OLD_y;
+
 
         public Point(int x, int y)
         {
@@ -27,6 +30,18 @@ namespace cse210_FinalProject_DragonQuest.Casting
         {
             return _y;
         }
+
+        public int GetOLD_X()
+        {
+            return OLD_x;
+        }
+
+        public int GetOLD_Y()
+        {
+            return OLD_y;
+        }
+
+        
 
         /// <summary>
         /// Returns a new point that is the result of adding this one to the provided one.
