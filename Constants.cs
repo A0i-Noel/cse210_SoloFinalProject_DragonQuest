@@ -54,8 +54,8 @@ namespace cse210_FinalProject_DragonQuest
         public const int MAP_WIDTH = 76;
         public const int MAP_HEIGHT = 76;
         public const int MAP_SPEED = 15;
-        public const int HERO_WIDTH = 60;
-        public const int HERO_HEIGHT = 60;
+        public const int HERO_WIDTH = 70;
+        public const int HERO_HEIGHT = 70;
         public const int SLIME_WIDTH = 57;
         public const int SLIME_HEIGHT = 61;
         public const int SLIME_SPEED = 15;

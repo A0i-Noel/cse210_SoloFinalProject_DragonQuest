@@ -53,18 +53,14 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             for(int i =0;i < Fields.Count; i++ )
           {
             Actor field = cast["Field"][i];
-            field.SetOLD_X(field.GetX());
-            field.SetOLD_Y(field.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            // }else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             field.SetVelocity(Svelocity);
-
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              field.SetVelocity(Rvelocity);
+            }
+            
 
           }
 
@@ -72,52 +68,37 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           for(int i =0;i < Waters.Count; i++ )
           {
             Actor Water = cast["Water"][i];
-            Water.SetOLD_X(Water.GetX());
-            Water.SetOLD_Y(Water.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             Water.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              Water.SetVelocity(Rvelocity);
+            }
           }
 
           for(int i =0;i < Walls.Count; i++ )
           {
             Actor Wall = cast["Wall"][i];
-            Wall.SetOLD_X(Wall.GetX());
-            Wall.SetOLD_Y(Wall.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             Wall.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              Wall.SetVelocity(Rvelocity);
+            }
           }
 
             for(int i =0;i < Items.Count; i++ )
           {
             Actor Herb = cast["Item"][i];
-            Herb.SetOLD_X(Herb.GetX());
-            Herb.SetOLD_Y(Herb.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             Herb.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              Herb.SetVelocity(Rvelocity);
+            }
           }
   
           List<Actor> slimes = cast["Slime"];
@@ -125,18 +106,13 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           for(int i =0;i < (int)slimes.Count; i++ )
           {
             Actor slime = cast["Slime"][i];
-            slime.SetOLD_X(slime.GetX());
-            slime.SetOLD_Y(slime.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             slime.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              slime.SetVelocity(Rvelocity);
+            }
           }
   
           List<Actor> drakees = cast["Drakee"];
@@ -144,36 +120,26 @@ namespace cse210_FinalProject_DragonQuest.Scripting
           for(int i =0;i < (int)drakees.Count; i++ )
           {
             Actor drakee = cast["Drakee"][i];
-            drakee.SetOLD_X(drakee.GetX());
-            drakee.SetOLD_Y(drakee.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             drakee.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              drakee.SetVelocity(Rvelocity);
+            }
           }
   
           List<Actor> dragons = cast["Dragon"];
   
           for(int i = 0; i < (int)dragons.Count;i++){
             Actor dragon = cast["Dragon"][i];
-            dragon.SetOLD_X(dragon.GetX());
-            dragon.SetOLD_Y(dragon.GetY());
-            Point Svelocity = stop.Scale(Constants.MAP_SPEED);
-            if(wallCheck == 0)
-            {
-              Svelocity = direction.Scale(Constants.MAP_SPEED);
-            }
-            // else{
-            //   Svelocity = Rdirection.Scale(Constants.MAP_SPEED);
-            // }
-             
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
             dragon.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              dragon.SetVelocity(Rvelocity);
+            }
           }
         
 

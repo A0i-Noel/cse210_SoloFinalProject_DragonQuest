@@ -49,11 +49,11 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             int dx = actor.GetVelocity().GetX();
             int dy = actor.GetVelocity().GetY();
 
-            if(ControlActorsAction.WC() >= 1)
-            {
-                dx = -dx;
-                dy = -dy;
-            }
+            // if(ControlActorsAction.WC() >= 1)
+            // {
+            //     dx = -dx;
+            //     dy = -dy;
+            // }
 
             int newX = (x + dx);
             int newY = (y + dy);
