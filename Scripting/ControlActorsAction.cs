@@ -37,6 +37,9 @@ namespace cse210_FinalProject_DragonQuest.Scripting
       List<Actor> Walls = cast["Wall"];
       List<Actor> Waters = cast["Water"];
       List<Actor> Items = cast["Item"];
+      List<Actor> Board = cast["Board"];
+      List<Actor> message = cast["message"];
+      List<Actor> Intro = cast["Intro"];
 
 
       wallCheck = 0;
@@ -98,6 +101,42 @@ namespace cse210_FinalProject_DragonQuest.Scripting
             {
               Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
               Herb.SetVelocity(Rvelocity);
+            }
+          }
+
+          for(int i =0;i < Board.Count; i++ )
+          {
+            Actor board = cast["Board"][i];
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+            board.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              board.SetVelocity(Rvelocity);
+            }
+          }
+
+          for(int i =0;i < Intro.Count; i++ )
+          {
+            Actor intro = cast["Intro"][i];
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+            intro.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              intro.SetVelocity(Rvelocity);
+            }
+          }
+
+          for(int i =0;i < message.Count; i++ )
+          {
+            Actor Message = cast["message"][i];
+            Point Svelocity = direction.Scale(Constants.MAP_SPEED);
+            Message.SetVelocity(Svelocity);
+            if(wallCheck > 0)
+            {
+              Point Rvelocity = direction.Scale(Constants.MAP_SPEED * -1);
+              Message.SetVelocity(Rvelocity);
             }
           }
   

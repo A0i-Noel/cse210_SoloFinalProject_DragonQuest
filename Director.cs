@@ -33,6 +33,7 @@ namespace cse210_FinalProject_DragonQuest
             Actor hero = _cast["Hero"][0];
             Actor Boss = _cast["Dragon"][0];
             
+            
             while (_keepPlaying)
             {
                 CueAction("input");
@@ -43,6 +44,7 @@ namespace cse210_FinalProject_DragonQuest
                 {
                     
                     _keepPlaying = false;
+                    
                 }
             }
 

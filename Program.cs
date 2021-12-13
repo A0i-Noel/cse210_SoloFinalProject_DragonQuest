@@ -23,7 +23,7 @@ namespace cse210_FinalProject_DragonQuest
             cast["Drakee"] = new List<Actor>();
             cast["Dragon"] = new List<Actor>();
             cast["Item"] = new List<Actor>();
-            // cast["Board"] = new List<Actor>();
+            cast["Board"] = new List<Actor>();
             cast["Wall"] = new List<Actor>();
             
             for (int c = 0;c < 54;c++){
@@ -121,7 +121,7 @@ namespace cse210_FinalProject_DragonQuest
             }
 
           Board _board = new Board(532, 228);
-          cast["Wall"].Add(_board);
+          cast["Board"].Add(_board);
 
 
             for (int c = 0;c < 6;c++){
@@ -359,6 +359,13 @@ namespace cse210_FinalProject_DragonQuest
             cast["Cover"] = new List<Actor>();
             StatusC _C = new StatusC();
             cast["Cover"].Add(_C);
+
+            cast["message"] = new List<Actor>();
+            Message MB = new Message();
+            cast["message"].Add(MB);
+            cast["Intro"] = new List<Actor>();
+            Intro I = new Intro();
+            cast["Intro"].Add(I);
             
 
             cast["Status"] = new List<Actor>();
@@ -417,7 +424,7 @@ namespace cse210_FinalProject_DragonQuest
             
 
             
-
+            audioService.PlaySound(Constants.SOUND_OVER);
             audioService.StopAudio();
         }
     }

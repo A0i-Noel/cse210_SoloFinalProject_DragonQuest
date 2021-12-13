@@ -35,6 +35,7 @@ namespace cse210_FinalProject_DragonQuest
       public const string IMAGE_ATTACK = "./Assets/sword.png";
       public const string IMAGE_HERB = "./Assets/HARB.png";
       public const string IMAGE_BOARD = "./Assets/Billboard.png";
+      public const string IMAGE_WINDOW = "./Assets/window.png";
 
       public const int BALL_X = MAX_X / 2;
         public const int BALL_Y = MAX_Y - 125;
