@@ -30,14 +30,18 @@ namespace cse210_FinalProject_DragonQuest
         /// </summary>
         public void Direct()
         {
+            Actor hero = _cast["Hero"][0];
+            Actor Boss = _cast["Dragon"][0];
+            
             while (_keepPlaying)
             {
                 CueAction("input");
                 CueAction("update");
                 CueAction("output");
 
-                if (Raylib_cs.Raylib.WindowShouldClose())
+                if (Raylib_cs.Raylib.WindowShouldClose() || hero.GetHP() <= 0 || Boss.GetHP() <= 0)
                 {
+                    
                     _keepPlaying = false;
                 }
             }

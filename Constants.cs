@@ -19,7 +19,7 @@ namespace cse210_FinalProject_DragonQuest
       public const string SOUND_SPELL = "./Assets/Spell.wav";
       public const string SOUND_LEVELUP = "./Assets/LevelUp.wav";
       public const string SOUND_FIELD = "./Assets/FieldAudio.wav";
-      public const string SOUND_OVER = "./Assets/over.wav";
+      public const string SOUND_OVER = "./Assets/GameOver.wav";
       public const string IMAGE_TREE = "./Assets/Tree.png";
       public const string IMAGE_WATER = "./Assets/water.png";
       public const string IMAGE_SEA = "./Assets/Sea.png";
